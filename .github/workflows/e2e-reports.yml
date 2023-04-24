@@ -18,6 +18,7 @@ env:
   TASK_NAME: "Playwright Automation Task JP"
   FOLDER_NAME: "Playwright Automation Run"
   RESULTS_FILE: "test-results"
+  UPDATE_FILE: "main/Application/EdFi.Ods.AdminApp.E2E.Tests/reports/playwright-results.xml"
 
 jobs:
   report:
@@ -39,10 +40,11 @@ jobs:
       - name: Extract Artifact
         run: Expand-Archive "${{ env.RESULTS_FILE }}.zip"
       - name: Send report to Zephyr
+        if: github.event.workflow_run.head_branch == 'main'
         run: |
           $parameters = @{
               cycleName = '${{ env.CYCLE_NAME }}'
               taskName = '${{ env.TASK_NAME }}'
               folderName = '${{ env.FOLDER_NAME }}'
           }
-          .\eng\send-test-results.ps1 -PersonalAccessToken MjA5MjkxMzQ4MDY3Oo4xIuQoms07kgI19QmBaj2uefqj -ProjectId ${{ env.PROJECT_ID }} -AdminAppVersion '${{ env.ADMIN_APP_VERSION }}' -ResultsFilePath '${{ env.RESULTS_FILE }}/playwright-results.xml' -ConfigParams $parameters
+          .\eng\send-test-results.ps1 -PersonalAccessToken ${{ env.JIRA_ACCESS_TOKEN }} -ProjectId ${{ env.PROJECT_ID }} -AdminAppVersion '${{ env.ADMIN_APP_VERSION }}' -ResultsFilePath '${{ env.UPDATE_FILE }}' -ConfigParams $parameters
