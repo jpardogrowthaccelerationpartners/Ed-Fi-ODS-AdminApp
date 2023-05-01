@@ -12,11 +12,11 @@ on:
 
 env:
   JIRA_ACCESS_TOKEN: ${{ secrets.JIRA_ACCESS_TOKEN }}
-  ADMIN_APP_VERSION: "3.0.0"
-  PROJECT_ID: "11900"
+  ADMIN_APP_VERSION: "1.1.0"
+  PROJECT_ID: "13401"
   CYCLE_NAME: "Automation Cycle"
-  TASK_NAME: "Playwright Automation Task JP"
-  FOLDER_NAME: "Playwright Automation Run"
+  TASK_NAME: "Postman Automation Task"
+  FOLDER_NAME: "Postman Automation Run"
   RESULTS_FILE: "test-results"
   UPDATE_FILE: "main/Application/EdFi.Ods.AdminApp.E2E.Tests/reports/playwright-results.xml"
 
@@ -46,4 +46,4 @@ jobs:
               taskName = '${{ env.TASK_NAME }}'
               folderName = '${{ env.FOLDER_NAME }}'
           }
-          .\eng\send-test-results.ps1 -PersonalAccessToken MjA5MjkxMzQ4MDY3Oo4xIuQoms07kgI19QmBaj2uefqj -ProjectId ${{ env.PROJECT_ID }} -AdminAppVersion '${{ env.ADMIN_APP_VERSION }}' -ResultsFilePath '${{ env.UPDATE_FILE }}' -ConfigParams $parameters
+          .\eng\send-test-results.ps1 -PersonalAccessToken MjA5MjkxMzQ4MDY3Oo4xIuQoms07kgI19QmBaj2uefqj -ProjectId ${{ env.PROJECT_ID }} -AdminAppVersion '${{ env.ADMIN_APP_VERSION }}' -ResultsFilePath 'Application/results.xml' -ConfigParams $parameters
