@@ -15,11 +15,11 @@ on:
 permissions: read-all
 
 env:
-  ARTIFACTS_API_KEY: ${{ secrets.AZURE_ARTIFACTS_PERSONAL_ACCESS_TOKEN }}
+  ARTIFACTS_API_KEY: "53acfbeb-77f2-4ef6-8596-dc19e5802775"
   ARTIFACTS_FEED_URL: "https://pkgs.dev.azure.com/ed-fi-alliance/Ed-Fi-Alliance-OSS/_packaging/EdFi/nuget/v3/index.json"
   ARTIFACTS_PACKAGES_URL: "https://pkgs.dev.azure.com/ed-fi-alliance/9f7770ac-66d9-4fbc-b81e-b5ad79002b62/_apis/packaging/feeds/338858dc-b976-4355-ab70-5e713b1f56be/nuget/packagesBatch?api-version=7.1-preview.1"
   RELEASE_VIEW_ID: "53acfbeb-77f2-4ef6-8596-dc19e5802775" #Release
-  ARTIFACTS_USERNAME: ${{ secrets.AZURE_ARTIFACTS_USER_NAME }}
+  ARTIFACTS_USERNAME: "53acfbeb-77f2-4ef6-8596-dc19e5802775"
 
 jobs:
   delete-pre-releases:
