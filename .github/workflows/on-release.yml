@@ -79,5 +79,5 @@ jobs:
             Password    = (ConvertTo-SecureString -String "${{ env.ARTIFACTS_API_KEY }}" -AsPlainText -Force)
           }
 
-          Import-Module ../../eng/promote-packages.ps1
+          Import-Module ./eng/promote-packages.ps1
           Invoke-Promote @arguments
