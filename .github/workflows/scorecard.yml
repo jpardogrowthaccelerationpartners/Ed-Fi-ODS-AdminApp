@@ -1,14 +1,6 @@
 # Originally sourced from GitHub with implicit lack of license
 
 name: Scorecard supply-chain security
-on:
-  # To guarantee Maintained check is occasionally updated. See
-  # https://github.com/ossf/scorecard/blob/main/docs/checks.md#maintained
-  schedule:
-    - cron: '15 23 * * 0'
-  push:
-    branches: [ "main" ]
-  workflow_dispatch:
 
 # Declare default permissions as read only.
 permissions: read-all
