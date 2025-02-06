@@ -38,7 +38,7 @@ jobs:
           cp -r ./main/eng/test-certs/ssl ./ods-docker
       - name: ls files
         run: |
-          ls -la 
+          ls -la ./main
       - name: Update Admin App Docker package versions
         run: |
           chmod +x ./main/Application/EdFi.Ods.AdminApp.E2E.Tests/gh-action-setup/set-versions.sh
