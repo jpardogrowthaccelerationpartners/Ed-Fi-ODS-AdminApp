@@ -37,12 +37,15 @@ jobs:
           repository: Ed-Fi-Alliance-OSS/Ed-Fi-ODS-Docker
           path: ods-docker
           ref: main-6x
-      - name: Sleep for 30 seconds
-        run: sleep 10s
+      - name: Sleep for 10 seconds
+        run: sleep 30s
         shell: bash
       - name: Copy files to Docker repo
         run: |
           cp -r ./main/eng/test-certs/ssl ./ods-docker
+      - name: Copy files to Docker repo
+        run: |
+          cat ./main/Docker/pgsql.Dockerfile
       - name: Run ODS
         run: docker compose -f ./main/Application/EdFi.Ods.AdminApp.E2E.Tests/gh-action-setup/compose-aa-build.yml --env-file ./main/Application/EdFi.Ods.AdminApp.E2E.Tests/gh-action-setup/.automation.env up -d
       - name: Verify ODS Health
