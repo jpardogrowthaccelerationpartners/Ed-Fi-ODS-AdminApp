@@ -38,7 +38,7 @@ jobs:
           path: ods-docker
           ref: main-6x
       - name: Sleep for 10 seconds
-        run: sleep 30s
+        run: sleep 10s
         shell: bash
       - name: Copy files to Docker repo
         run: |
