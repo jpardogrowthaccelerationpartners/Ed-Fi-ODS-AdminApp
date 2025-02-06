@@ -45,7 +45,7 @@ jobs:
           ./main/Application/EdFi.Ods.AdminApp.E2E.Tests/gh-action-setup/set-versions.sh
       - name: ls files ods
         run: |
-          ls -la ./ods-docker
+          cat ./ods-docker/DB-Admin/pgsql/Dockerfile
       - name: Run ODS
         run: docker compose -f ./main/Application/EdFi.Ods.AdminApp.E2E.Tests/gh-action-setup/compose-aa-build.yml --env-file ./main/Application/EdFi.Ods.AdminApp.E2E.Tests/gh-action-setup/.automation.env up -d
       - name: Verify ODS Health
