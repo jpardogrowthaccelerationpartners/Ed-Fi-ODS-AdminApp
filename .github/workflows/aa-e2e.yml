@@ -36,7 +36,7 @@ jobs:
       - name: Get ODS Docker
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
-          repository: d-Fi-Alliance-OSS/Ed-Fi-ODS-Docker
+          repository: Ed-Fi-Alliance-OSS/Ed-Fi-ODS-Docker
           path: ods-docker
           ref: main-6x
           
