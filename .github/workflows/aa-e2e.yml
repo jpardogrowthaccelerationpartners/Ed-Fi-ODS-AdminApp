@@ -37,6 +37,9 @@ jobs:
           repository: Ed-Fi-Alliance-OSS/Ed-Fi-ODS-Docker
           path: ods-docker
           ref: main-6x
+      - name: Sleep for 30 seconds
+        run: sleep 10s
+        shell: bash
       - name: Copy files to Docker repo
         run: |
           cp -r ./main/eng/test-certs/ssl ./ods-docker
