@@ -157,7 +157,7 @@ jobs:
         shell: bash
         run: |
           # sha256sum returns "<hashcode>  <name of file". Split that and return only the <hashcode>.
-          sbom_hash=$(sha256sum ./manifest/${{ env.MANIFEST_FILE }} | awk '{split($0,a); print a[1]}')
+          sbom_hash=$(sha256sum ${{ env.MANIFEST_FILE }} | awk '{split($0,a); print a[1]}')
           echo "sbom-hash-code=$sbom_hash" >> $GITHUB_OUTPUT
 
   sbom-attach:
@@ -174,7 +174,7 @@ jobs:
         uses: Ed-Fi-Alliance-OSS/slsa-github-generator/.github/actions/secure-download-artifact@v2.0.0
         with:
           name: "${{ env.PACKAGE_NAME }}-SBOM"
-          path: ./manifest/${{ env.MANIFEST_FILE }}
+          path: ./manifest
           sha256: "${{ needs.sbom-create.outputs.sbom-hash-code }}"
 
       - name: Attach to release
@@ -183,7 +183,7 @@ jobs:
           $release = "${{ github.ref_name }}"
           $repo = "${{ github.repository }}"
           $token = "${{ secrets.GITHUB_TOKEN }}"
-          $file = "./manifest/${{ env.MANIFEST_FILE }}"
+          $file = "${{ env.MANIFEST_FILE }}"
           $uploadName = "${{ env.PACKAGE_NAME }}-SBOM.zip"
 
           $url = "https://api.github.com/repos/$repo/releases/tags/$release"
