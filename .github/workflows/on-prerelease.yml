@@ -93,7 +93,7 @@ jobs:
       contents: write
     steps:
       - name: Download the SBOM
-        uses: Ed-Fi-Alliance-OSS/slsa-github-generator/.github/actions/secure-download-artifact@v2.0.0
+        uses: Ed-Fi-Alliance-OSS/slsa-github-generator/.github/actions/secure-download-artifact@2.0.0
         with:
           name: "${{ env.PACKAGE_NAME }}-SBOM"
           path: ${{ env.MANIFEST_FILE }}
@@ -255,4 +255,3 @@ jobs:
           tags: ${{ steps.prepare-tags.outputs.AASQLTAGS }}
           labels: ${{ steps.metadatabase.outputs.labels }}
           push: true
-
