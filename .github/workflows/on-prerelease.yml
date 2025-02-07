@@ -170,11 +170,14 @@ jobs:
       actions: read
       contents: write
     steps:
+      - name: Publish .NET Assemblies
+        run: |
+          ls -la
       - name: Download the SBOM
         uses: Ed-Fi-Alliance-OSS/slsa-github-generator/.github/actions/secure-download-artifact@v2.0.0
         with:
           name: "${{ env.PACKAGE_NAME }}-SBOM"
-          path: /_manifest/
+          path: ./manifest/${{ env.MANIFEST_FILE }}
           sha256: "${{ needs.sbom-create.outputs.sbom-hash-code }}"
 
       - name: Attach to release
