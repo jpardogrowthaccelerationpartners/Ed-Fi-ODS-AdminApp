@@ -20,3 +20,14 @@ body:
         **Please do not create issues in this repository for support requests.**
         
         Thank you for your understanding!
+
+  - type: checkboxes
+    id: acknowledgment
+    attributes:
+      label: "Acknowledgment"
+      description: "Please confirm you understand this guidance"
+      options:
+        - label: "I understand that I should use the Ed-Fi Community Hub for support questions"
+          required: true
+        - label: "I will close this issue and post my question on the Community Hub instead"
+          required: true
