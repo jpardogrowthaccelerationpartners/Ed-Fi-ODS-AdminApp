@@ -37,6 +37,9 @@ jobs:
       - name: Copy files to Docker repo
         run: |
           cp -r ./main/eng/test-certs/ssl ./ods-docker
+      - name: Set version on env file
+        run: |
+          sed -i 's/3.3.1/${{ github.ref_name }}/g' ./main/Docker/pgsql.Dockerfile
       - name: Update Admin App Docker package versions
         run: |
           chmod +x ./main/Application/EdFi.Ods.AdminApp.E2E.Tests/gh-action-setup/set-versions.sh
