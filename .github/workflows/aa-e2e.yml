@@ -33,7 +33,7 @@ jobs:
           chmod +x ./main/Docker/Settings/ssl/generate-certificate.sh
       - name: Generate the certificate
         run: |
-          ls -la
+          ls -la main
       - name: Run ODS
         if: success()
         run: docker compose -f ./main/Application/EdFi.Ods.AdminApp.E2E.Tests/gh-action-setup/compose-aa-build.yml --env-file ./main/Application/EdFi.Ods.AdminApp.E2E.Tests/gh-action-setup/.automation.env up -d
