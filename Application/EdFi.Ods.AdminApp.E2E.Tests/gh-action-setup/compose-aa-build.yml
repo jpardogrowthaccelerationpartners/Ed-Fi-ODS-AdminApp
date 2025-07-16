@@ -92,8 +92,8 @@ services:
       context: ../../../Docker/
       additional_contexts:
         settings: ../../../Docker/
-        parentdir: ../../../../
-      dockerfile: dev.pgsql.Dockerfile
+        parentdir: ../../../
+      dockerfile: pgsql.Dockerfile  # Changed from dev.pgsql.Dockerfile
     environment:
       POSTGRES_USER: "${POSTGRES_USER}"
       POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
