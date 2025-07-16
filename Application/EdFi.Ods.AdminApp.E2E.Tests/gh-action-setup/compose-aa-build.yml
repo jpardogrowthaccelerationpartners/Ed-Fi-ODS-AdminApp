@@ -89,7 +89,10 @@ services:
 
   adminapp:
     build:
-      context: ../../Docker/
+      context: ../../../Docker/
+      additional_contexts:
+        settings: ../../../Docker/
+        parentdir: ../../../../
       dockerfile: dev.pgsql.Dockerfile
     environment:
       POSTGRES_USER: "${POSTGRES_USER}"
